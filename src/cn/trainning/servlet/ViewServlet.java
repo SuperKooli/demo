@@ -1,11 +1,16 @@
 package cn.trainning.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cn.trainning.dao.EmpDeptJobDao;
+import cn.trainning.dto.Employee;
 
 /**
  * Servlet implementation class Test
@@ -25,22 +30,22 @@ public class ViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("empInfo"));
-		response.getWriter().append("<table class=\"table table-striped\">")
-		.append("<thead>\r\n" + 
-				"			<tr>\r\n" + 
-				"				<th>EMPID</th>\r\n" + 
-				"				<th>FIRST NAME</th>\r\n" + 
-				"				<th>LAST NAME</th>\r\n" + 
-				"				<th>EMAIL</th>\r\n" + 
-				"				<th>PHONE</th>\r\n" + 
-				"				<th>JOB ID</th>\r\n" + 
-				"				<th>SALARY</th>\r\n" + 
-				"				<th>MANAGER ID</th>\r\n" + 
-				"				<th>DEPT ID</th>\r\n" + 
-				"			</tr>\r\n" + 
-				"		</thead>")
-		.append("</table>");
+		String dept = request.getParameter("dept");
+		String manager = request.getParameter("manager");
+		String job = request.getParameter("job");
+		StringBuffer sql = new StringBuffer("select * from employees where 1 = 1 ");
+		if(!"".equals(dept)) {
+			sql.append("and dept = " + dept);
+		}
+		if(!"".equals(manager)) {
+			sql.append("and manager = " + manager);
+		}
+		if(!"".equals(job)) {
+			sql.append("and job = " + job);
+		}
+		List<Employee> empList = (List<Employee>) new EmpDeptJobDao().getDate("emp", sql.toString());
+		request.setAttribute("empList", empList);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**

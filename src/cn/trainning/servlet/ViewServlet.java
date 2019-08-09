@@ -30,9 +30,9 @@ public class ViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String dept = request.getParameter("dept");
-		String manager = request.getParameter("manager");
-		String job = request.getParameter("job");
+		String dept = request.getParameter("department_id");
+		String manager = request.getParameter("manager_id");
+		String job = request.getParameter("job_id");
 		StringBuffer sql = new StringBuffer("select * from employees where 1 = 1 ");
 		if(!"".equals(dept)) {
 			sql.append("and dept = " + dept);

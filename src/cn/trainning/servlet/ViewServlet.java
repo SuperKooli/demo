@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.trainning.dao.EmpDeptJobDao;
+import cn.trainning.dto.Department;
 import cn.trainning.dto.Employee;
+import cn.trainning.dto.Job;
 
 /**
  * Servlet implementation class Test
@@ -44,8 +46,15 @@ public class ViewServlet extends HttpServlet {
 			sql.append("and job = " + job);
 		}
 		List<Employee> empList = (List<Employee>) new EmpDeptJobDao().getDate("emp", sql.toString());
+		List<Department> depts = (List<Department>) new EmpDeptJobDao().getDate("dept", "select department_id from departments");
+		List<Employee> managers = (List<Employee>) new EmpDeptJobDao().getDate("emp", "select manager_id from employees");
+		List<Job> jobs = (List<Job>) new EmpDeptJobDao().getDate("job", "select job_id from jobs");
 		request.setAttribute("empList", empList);
+		request.setAttribute("depts", depts);
+		request.setAttribute("managers", managers);
+		request.setAttribute("jobs", jobs);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 	}
 
 	/**

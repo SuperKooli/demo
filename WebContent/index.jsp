@@ -2,9 +2,9 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@page import="trainning.dto.Employee"%>
-<%@page import="trainning.dto.Department"%>
-<%@page import="trainning.dto.Job"%>
+<%@page import="cn.trainning.dto.Employee"%>
+<%@page import="cn.trainning.dto.Department"%>
+<%@page import="cn.trainning.dto.Job"%>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
-				<form action="/0809/emp">
+				<form action="/0809">
 					<div class="form-group">
 						<label for="department_id" class="col-lg-2 control-label">Department</label>
 						<div class="col-lg-10">

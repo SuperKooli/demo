@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,50 +16,32 @@
 	<div class="container">
 		<form role="form" method="get" action="/Demo01/emp">
 			<div class="form-group">
-				<input type="text" class="form-control" style="display: inline;"
-					placeholder="请输入要查询的员工信息" name="empInfo">
+				<label for="name">Department</label> <select class="form-control">
+			<option>1</option>
+		</select> <label for="name">Manager</label> <select class="form-control">
+			<option>1</option>
+		</select> <label for="name">Job</label> <select class="form-control">
+			<option>1</option>
+		</select>
 				<button type="submit" class="btn btn-default"
 					style="display: inline;">查询</button>
 			</div>
 		</form>
-		<label for="name">Department</label> <select class="form-control">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select> <label for="name">Manager</label> <select class="form-control">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select> <label for="name">Job</label> <select class="form-control">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select>
+		
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>#</th>
-					<th>Firstname</th>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>PHONE</th>
+					<th>EMAIL</th>
+					<th>SALARY</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>1</td>
+					<td>NAME</td>
 					<td>Anna</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Debbie</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>John</td>
 				</tr>
 			</tbody>
 		</table>

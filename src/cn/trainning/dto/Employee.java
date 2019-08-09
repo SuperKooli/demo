@@ -1,4 +1,4 @@
-package cn.tranning.work;
+package cn.trainning.dto;
 
 import java.util.Date;
 

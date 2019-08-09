@@ -1,4 +1,4 @@
-package cn.trainning.work;
+package cn.trainning.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Test
  */
 @WebServlet("/emp")
-public class Test extends HttpServlet {
+public class ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Test() {
+    public ViewServlet() {
         // TODO Auto-generated constructor stub
     }
 

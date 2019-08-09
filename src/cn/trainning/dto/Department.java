@@ -1,4 +1,4 @@
-package cn.trainning.work;
+package cn.trainning.dto;
 
 public class Department {
 	private int deptId;
